@@ -1,4 +1,4 @@
- The motivation for this project arises from the need to reduce human intervention in ATC processes and minimize the possibility of human error, particularly in critical situations like emergency landings and many more. By leveraging digital circuits, the system ensures faster, more accurate decision-making in real-time, thereby enhancing both safety and operational efficiency. In an environment where even minor delays or mistakes can have serious consequences, automating such processes can significantly improve airport management, especially when multiple variables like weather conditions, runway availability, and aircraft fuel status must be considered simultaneously.
+The motivation for this project arises from the need to reduce human intervention in ATC processes and minimize the possibility of human error, particularly in critical situations like emergency landings and many more. By leveraging digital circuits, the system ensures faster, more accurate decision-making in real-time, thereby enhancing both safety and operational efficiency. In an environment where even minor delays or mistakes can have serious consequences, automating such processes can significantly improve airport management, especially when multiple variables like weather conditions, runway availability, and aircraft fuel status must be considered simultaneously.
 
 ### Features:
  Our contribution lies in developing an automated ATC system that receives data from aircraft sensors—range, speed, altitude, and fuel level—as well as weather sensors. A majority voting circuit is incorporated to reduce errors in the sensor inputs, ensuring accurate and reliable data processing. We have integrated a RADAR detection feature, which monitors incoming planes approaching the airport for landing. One of the unique features of this project includes automatic emergency management feature. When an aircraft’s fuel level is critically low or if it has any damage, the system designates it as an emergency, prioritizes its landing, and dispatches ground vehicles to assist. If an aircraft’s fuel is too high, the system prevents it from landing until the fuel level reaches a safe threshold, avoiding potential risks. The system handles emergencies, prioritizes aircraft based on fuel status and other features, and improves the overall safety and reliability of airport operations through a fully automated process.
@@ -10,9 +10,8 @@
 </details>
 
 ## Functional Block Diagram
-Simplified Diagram:
 
-  ![Basic Structure](https://github.com/user-attachments/assets/48b6d6b2-4258-4859-89f3-08b8b56e760d)
+ ![Basic Structure](https://github.com/user-attachments/assets/48b6d6b2-4258-4859-89f3-08b8b56e760d)
 
 <br>
 
@@ -40,7 +39,6 @@ Simplified Diagram:
  ###  Initial Inputs (Start)
 
   The process begins with the system receiving inputs from two different sources, depending on whether the aircraft is landing or taking off.
- Simultaneously, weather conditions are monitored to ensure it is safe for either
   Flight Detection using Radar
   Once a flight is detected, the system receives data from multiple sensors aboard the plane, such as  speed, range, height, fuel level, and emergency status.
    Weather data is also gathered from the ATC.
@@ -60,7 +58,6 @@ Simplified Diagram:
    The system also checks the plane’s fuel level and whether there is any emergency situation.
 It automatically considers the situation to be an emergency when fuel is low and when fuel is in excess, its let to be in air until it reaches optimum level. 
 Emergency Handling 
- The AND, OR  gate is used to detect emergencies by verifying two conditions:
  If any part of the weather input is favorable (such as visibility, wind speed, etc.), the system allows the operation to proceed.
 For example, if visibility is good and wind speed is within limits, the OR gate outputs true, and the system moves to check runway availability.
 However, if all weather conditions are unfavorable, the system waits until the weather improves. We use 12 second timer for that.
@@ -107,7 +104,7 @@ The D FlipFlop is the core of this system, to handle the runway assignment. The 
   The system checks the corresponding gates using the D flip-flops. Each D flip-flop stores either a 0 (indicating the gate is free) or a 1 (indicating the gate is occupied). 
   The system sequentially checks each flip-flop to determine if a gate is available:
 	If a gate's flip-flop stores 0, that gate is immediately assigned to the aircraft, and the flip-flop is updated to store 1, marking the gate as occupied.
- Runway Vacancy Using Counter
+Runway Vacancy Using Counter
   The memory of the system is dynamically updated based on the status of the gates, ensuring that the system operates smoothly even during peak traffic periods.
 
 ### Takeoff
@@ -136,16 +133,7 @@ The D FlipFlop is the core of this system, to handle the runway assignment. The 
   	Logic gates like AND and OR manage the flow of signals, ensuring that takeoffs are only allowed when both the runway is free and the weather is clear. The system also tracks the status of runways (busy or 
      free) using these gates.
 
-    The system prioritizes runway assignment based on the plane’s gate: Runway 1 for gates 1–3, and Runway 2 for gates 4–6.<br>
-   	Runway Assigner:<br>
-     This module checks the availability of the preferred runway based on gate input.<br>
-    If the preferred runway is busy, the system assigns the other runway.<br>
-    If both runways are occupied, it triggers a 15-second timer before rechecking availability.<br>
-  	Timers:<br>
-   	A 9-second timer is used once a runway is assigned to check if the weather remains clear. After the timer finishes, the plane can proceed if conditions are favorable.
-    A 9-second timer is triggered if both runways are busy, pausing the system before rechecking runway availability.
-      Logic Gates and Runway Status:<br>
-  	Logic gates like AND and OR manage the flow of signals, ensuring that takeoffs are only allowed when both the runway is free and the weather is clear. The system also tracks the status of runways (busy or free) using these gates.<br>
+    
 
   In essence, this circuit automates runway assignments, using logic gates and timers to manage conflicts, weather conditions, and runway availability effectively.
   In summary, the ATC system uses logic gates and a timer to manage inputs and conditions effectively.
@@ -154,19 +142,13 @@ The D FlipFlop is the core of this system, to handle the runway assignment. The 
   The 9-second and 9 second timer helps prevent unnecessary delays, making the system efficient and responsive.<br>
 
 ### Truth Table:
-
-Runway Vacancy Using Counter
-  ### Main Circuit:
+ ### Main Circuit:
 
   ![MainCircuit](https://github.com/user-attachments/assets/6a7df0f9-e028-40a0-a0a0-25b8abc2bfc7)
-  
 
 
-### Radar Input:
- Runway Vacancy Using Counter
-    
+  ### Radar Input: Runway Vacancy Using Counter
 
-    
    
 </details>
 
@@ -253,3 +235,4 @@ working part (Refer Fig.15 and Fig.16). Runway assigner is enabled once all the 
 
  
 </details>
+  
