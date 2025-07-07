@@ -108,7 +108,7 @@ Runway Vacancy Using Counter
   The memory of the system is dynamically updated based on the status of the gates, ensuring that the system operates smoothly even during peak traffic periods.
 
 ### Takeoff
-   Takeoff Clearance
+   
    Takeoff Clearance<br>
    Once the system confirms the runway is clear and weather conditions are favorable, the plane is cleared for takeoff.
    If the runway is occupied for more than 15 seconds, the system forces the allocation to avoid excessive delays.
@@ -141,7 +141,7 @@ Runway Vacancy Using Counter
   The 12-second and 15 second timer helps prevent unnecessary delays, making the system efficient and responsive.
   The 9-second and 9 second timer helps prevent unnecessary delays, making the system efficient and responsive.<br>
 
-### Truth Table:
+
  ### Main Circuit:
 
   ![MainCircuit](https://github.com/user-attachments/assets/6a7df0f9-e028-40a0-a0a0-25b8abc2bfc7)
